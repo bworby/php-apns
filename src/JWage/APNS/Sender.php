@@ -27,10 +27,10 @@ class Sender
      * @param string $body
      * @param string $deepLink
      */
-    public function send($deviceToken, $title, $body, $deepLink = null)
+    public function send($deviceToken, $title, $body, $badge , $deepLink = null )
     {
         return $this->client->sendPayload(
-            $deviceToken, $this->createPayload($title, $body, $deepLink)
+            $deviceToken, $this->createPayload($title, $body, $badge, $deepLink )
         );
     }
 
@@ -42,8 +42,8 @@ class Sender
      * @param string $deepLink
      * @return \JWage\APNS\Payload
      */
-    private function createPayload($title, $body, $deepLink = null)
+    private function createPayload($title, $body, $badge, $deepLink = null)
     {
-        return new Payload($title, $body, $deepLink);
+        return new Payload($title, $body, $badge, $deepLink);
     }
 }

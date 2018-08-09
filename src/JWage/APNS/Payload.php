@@ -18,6 +18,11 @@ class Payload
      * @var string
      */
     private $deepLink;
+    
+    /**
+    * @var int
+    */
+    private $badge;
 
     /**
      * Construct.
@@ -26,10 +31,11 @@ class Payload
      * @param string $body
      * @param string $deepLink
      */
-    public function __construct($title, $body, $deepLink = null)
+    public function __construct($title, $body, $badge, $deepLink = null)
     {
         $this->title = $title;
         $this->body = $body;
+        $this->badge = $badge;
         $this->deepLink = $deepLink;
     }
 
@@ -42,7 +48,7 @@ class Payload
     {
         return array(
             'aps' => array(
-				'badge' => 1,
+				'badge' => $this->badge,
                 'alert' => array(
                     'title' => $this->title,
                     'body' => $this->body,
