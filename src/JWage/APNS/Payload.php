@@ -42,6 +42,7 @@ class Payload
     {
         return array(
             'aps' => array(
+				'badge' => 1,
                 'alert' => array(
                     'title' => $this->title,
                     'body' => $this->body,
